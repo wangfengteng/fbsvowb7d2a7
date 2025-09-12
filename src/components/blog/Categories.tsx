@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button'
+import { Link } from 'react-router-dom'
 
 const Categories = () => {
   const categories = [
@@ -22,15 +23,16 @@ const Categories = () => {
         
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           {categories.map((category, index) => (
-            <Button
-              key={index}
-              variant="outline"
-              className="flex flex-col items-center justify-center h-24 p-4 border-2 hover:border-primary/50 transition-all group"
-            >
-              <div className={`w-8 h-8 ${category.color} rounded-full mb-2`} />
-              <span className="font-semibold text-sm">{category.name}</span>
-              <span className="text-muted-foreground text-xs">{category.count}篇文章</span>
-            </Button>
+            <Link to="/categories" key={index}>
+              <Button
+                variant="outline"
+                className="flex flex-col items-center justify-center h-24 p-4 border-2 hover:border-primary/50 transition-all group w-full"
+              >
+                <div className={`w-8 h-8 ${category.color} rounded-full mb-2`} />
+                <span className="font-semibold text-sm">{category.name}</span>
+                <span className="text-muted-foreground text-xs">{category.count}篇文章</span>
+              </Button>
+            </Link>
           ))}
         </div>
       </div>

@@ -1,5 +1,6 @@
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
+import { Link } from 'react-router-dom'
 
 interface ArticleCardProps {
   title: string
@@ -38,9 +39,11 @@ const ArticleCard = ({ title, excerpt, author, date, readTime, category }: Artic
         <span className="text-sm text-muted-foreground">
           作者: {author}
         </span>
-        <Button variant="ghost" size="sm" className="text-primary">
-          阅读更多 →
-        </Button>
+        <Link to="/articles">
+          <Button variant="ghost" size="sm" className="text-primary">
+            阅读更多 →
+          </Button>
+        </Link>
       </CardFooter>
     </Card>
   )
